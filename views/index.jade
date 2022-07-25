@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  if authorised
+      p Tervetuloa #{fname} | 
+        a(href="/exit") Kirjaudu ulos
+      div(id='printableArea')
+        if typeof user != 'undefined'
+          p
+          | <b>Tilaustiedot</b><br/>
+          | nimi: #{user.user_fname}<br/>
+          | liput: #{prices.ticketsPrice} €<br/>
+          | majoitus: #{prices.lodgePrice} €<br/>
+          | ruoka: #{prices.foodPrice} €<br/>
+          | suihku: #{prices.showerPrice} €<br/>
+          | Yhteensä: #{prices.totalPrice} €<br/>
+          button(onclick="printDiv('printableArea')") Tulosta
+  else
+    p Et ole vielä ilmoittautunut? 
+      a(href='/register') Ilmoittudu
+    p Sinulla on jo tunnukset? 
+      a(href='/login') Kirjaudu
