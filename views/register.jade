@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  form(method='POST')
+    label(for='fname')
+      b Nimi
+    input#fname(type='text', placeholder='Koko nimi', name='fname', required='required')
+    label(for='email')
+      b Sähköposti
+    input#email(type='email', placeholder='sähköposti', name='email', required='required')
+    label(for='tel')
+      b Puhelinnumero 
+    input#phone(type='tel', placeholder='puhelinnumero', name='tel', required='required')
+    label(for='duration')
+      b Kesto 
+    select#duration(type='duration', placeholder='kesto', name='duration', required='required')
+      -for(var i = 1;i<=3;i++){
+      option(value="#{i}") #{i} vuorokautta 
+      -}
+    label(for='extra')
+    b Lisäpalvelut
+    .extra 
+      input#lodge(type='checkbox', placeholder='majoitus', name='lodge')
+      b majoitus
+    .extra 
+      input#food(type='checkbox', placeholder='ruoka', name='food')
+      b ruoka
+    .extra 
+      input#shower(type='checkbox', placeholder='suihku', name='shower')
+      b suihku
+    label(for='psw')
+      b Salasana
+    input#psw(type='password', placeholder='Salasana', name='psw', required='required')
+    label(for='pswrepeat')
+      b Salasana uudestaan 
+    input#pswrepeat(type='password', placeholder='Toista salasana', name='pswrepeat', required='required')
+    button(type='submit') Ilmoittaudu 
+    p Sinulla on jo tunnukset? 
+      a(href='/login') Kirjaudu

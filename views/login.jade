@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(method='POST')
+    label(for='email')
+      b Sähköposti
+    input#email(type='email', placeholder='Enter Email', name='email', required='required')
+    label(for='psw')
+      b Salasana
+    input#psw(type='password', placeholder='Enter Password', name='psw', required='required')
+    button(type='submit') Kirjaudu
+    p Sinulla ei ole vielä tunnuksia? 
+      a(href='/register') Ilmoittaudu
